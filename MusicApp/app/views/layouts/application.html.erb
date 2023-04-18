@@ -10,7 +10,22 @@
   </head>
 
   <body>
-    <%= yield %>
+   <%if logged_in?%>
+   <h2>welcome , <%= current_user.email%></h2>
+   <form action="<%=session_url%>" method= "POST">
+   <input type= "hidden" name= "_method" value= "DELETE">
+   <input type= "submit" value = "Logout">
+   </form>
+
+   <%else%>
+   <div class = "button-style">
+   <a href="<%= new_user_url %>"> <input type= "button" value = "signup"></a>
+   <a href="<%= new_session_url %>"> <input type= "button" value = "login"></a>
+   </div>
+
+  <%end %>
+
+  <%= yield %>
     
     
   </body>
