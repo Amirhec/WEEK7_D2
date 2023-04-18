@@ -17,3 +17,97 @@ Migrating to CreateUsers (20230418175432)
   [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1555902080779534005)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2023-04-18 16:13:45 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/amirlamrabat/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/amirlamrabat/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.9ms | Allocations: 526)
+Completed 200 OK in 14ms (Views: 6.8ms | ActiveRecord: 0.0ms | Allocations: 2810)
+
+
+Started GET "/users/new" for ::1 at 2023-04-18 16:13:54 -0400
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 5.5ms | Allocations: 7677)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/amirlamrabat/Desktop/WEEK7_D2/MusicApp/app/views"
+Did you mean?  sessions/new
+               layouts/application:
+  app/controllers/users_controller.rb:6:in `new'
+
+Started POST "/__better_errors/26667a5dd24072a6/variables" for ::1 at 2023-04-18 16:13:54 -0400
+Started GET "/users/session" for ::1 at 2023-04-18 16:13:58 -0400
+
+AbstractController::ActionNotFound - The action 'show' could not be found for UsersController:
+
+Started POST "/__better_errors/0a8a7320e0fd03ed/variables" for ::1 at 2023-04-18 16:13:58 -0400
+Started GET "/session" for ::1 at 2023-04-18 16:14:07 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/session"):
+  
+Started GET "/sessions" for ::1 at 2023-04-18 16:14:34 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/sessions"):
+  
+Started GET "/session" for ::1 at 2023-04-18 16:14:37 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/session"):
+  
+Started GET "/session/new" for ::1 at 2023-04-18 16:15:37 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 3351)
+
+
+
+NoMethodError - undefined method `logged_in?' for #<SessionsController:0x000000000040d8>
+        redirect_to users_url if logged_in?
+                                 ^^^^^^^^^^
+Did you mean?  logged_out:
+  app/controllers/application_controller.rb:14:in `require_logged_out'
+
+Started POST "/__better_errors/c0a8901078537350/variables" for ::1 at 2023-04-18 16:15:37 -0400
+Started GET "/session/new" for ::1 at 2023-04-18 16:18:25 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+
+SyntaxError - syntax error, unexpected '?', expecting ';' or '\n'
+    def logged_in!?
+                  ^
+/Users/amirlamrabat/Desktop/WEEK7_D2/MusicApp/app/controllers/application_controller.rb:35: syntax error, unexpected `end', expecting end-of-input:
+  app/controllers/application_controller.rb:21:in `'
+  app/controllers/sessions_controller.rb:1:in `<top (required)>'
+
+Started POST "/__better_errors/6415c89ea83c7e5a/variables" for ::1 at 2023-04-18 16:18:25 -0400
+Started GET "/session/new" for ::1 at 2023-04-18 16:18:49 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 20.3ms | Allocations: 6749)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 6859)
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 6.8ms | Allocations: 17498)
+
+
+
+NoMethodError - undefined method `username' for #<User id: nil, email: nil, password_digest: nil, session_token: nil, created_at: nil, updated_at: nil>:
+  app/views/sessions/new.html.erb:7
+  app/controllers/sessions_controller.rb:8:in `new'
+
+Started POST "/__better_errors/0f39906ba43ba71c/variables" for ::1 at 2023-04-18 16:18:50 -0400
+Started GET "/session/new" for ::1 at 2023-04-18 16:20:44 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 412)
+  Rendered layout layouts/application.html.erb (Duration: 42.2ms | Allocations: 6731)
+Completed 200 OK in 77ms (Views: 50.3ms | ActiveRecord: 6.8ms | Allocations: 17431)
+
+
